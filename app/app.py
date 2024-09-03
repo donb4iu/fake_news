@@ -123,16 +123,6 @@ prediction = model.predict(x_test)
 
 score = metrics.accuracy_score(y_test, prediction)
 print("NB accuracy:   %0.3f" % (score*100))
-cm = metrics.confusion_matrix(y_test, prediction, labels=[0,1])
-
-# Generate the confusion matrix plot
-fig, ax = plot_confusion_matrix(conf_mat=confusion_matrix(y_test, prediction),
-                                show_absolute=True,
-                                show_normed=True,
-                                colorbar=True)
-# Set the window title
-ax.set_title('NB Confusion Matrix %0.3f' % (score*100))
-plt.show()
 
 ## Seaborn Heat Map
 # Compute confusion matrix
@@ -168,15 +158,6 @@ prediction = model.predict(x_test)
 
 score = metrics.accuracy_score(y_test, prediction)
 print("SVM accuracy:   %0.3f" % (score*100))
-cm = metrics.confusion_matrix(y_test, prediction, labels=[0,1])
-
-
-fig, ax = plot_confusion_matrix(conf_mat=confusion_matrix(y_test, prediction),
-                                show_absolute=True,
-                                show_normed=True,
-                                colorbar=True)
-ax.set_title('SVM Confusion Matrix %0.3f' % (score*100))
-plt.show()
 
 ## Seaborn Heat Map
 # Compute confusion matrix
@@ -212,15 +193,6 @@ prediction = model.predict(x_test)
 
 score = metrics.accuracy_score(y_test, prediction)
 print("PAC accuracy:   %0.3f" % (score*100))
-cm = metrics.confusion_matrix(y_test, prediction, labels=[0,1])
-
-
-fig, ax = plot_confusion_matrix(conf_mat=confusion_matrix(y_test, prediction),
-                                show_absolute=True,
-                                show_normed=True,
-                                colorbar=True)
-ax.set_title('PAC Confusion Matrix %0.3f' % (score*100))
-plt.show()
 
 ## Seaborn Heat Map
 # Compute confusion matrix
