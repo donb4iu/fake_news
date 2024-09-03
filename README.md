@@ -1,4 +1,4 @@
-# fake_news
+# Fake News Detection using NLP techniques
 
 ## References
 
