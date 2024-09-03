@@ -134,6 +134,27 @@ fig, ax = plot_confusion_matrix(conf_mat=confusion_matrix(y_test, prediction),
 ax.set_title('NB Confusion Matrix %0.3f' % (score*100))
 plt.show()
 
+## Seaborn Heat Map
+# Compute confusion matrix
+cm = confusion_matrix(y_test, prediction)
+# Compute accuracy for each cell
+accuracy = cm.astype(float) / cm.sum(axis=1)[:, np.newaxis]
+# Create a figure with a specific number or name
+fig = plt.figure(num="News")
+# Create an axis object - This effectively means you are creating a single Axes object that occupies the entire figure.
+ax = fig.add_subplot(111)
+# Create annotation strings with both count and accuracy
+annotations = np.array([f'{count}\n({acc:.3f})' for count, acc in zip(cm.flatten(), accuracy.flatten())])
+annotations = annotations.reshape(cm.shape)
+# Plot confusion matrix using seaborn heatmap
+sns.heatmap(cm, annot=annotations, fmt='', ax=ax, cmap='Blues', cbar=True, annot_kws={"size": 10})
+# Set labels and title if needed
+ax.set_xlabel('Predicted labels')
+ax.set_ylabel('True labels')
+ax.set_title('NB Confusion Matrix %0.3f' % (score*100))
+# Show the plot
+plt.show()
+
 #SVM
 from sklearn.svm import LinearSVC
 pipe = Pipeline([
@@ -157,6 +178,26 @@ fig, ax = plot_confusion_matrix(conf_mat=confusion_matrix(y_test, prediction),
 ax.set_title('SVM Confusion Matrix %0.3f' % (score*100))
 plt.show()
 
+## Seaborn Heat Map
+# Compute confusion matrix
+cm = confusion_matrix(y_test, prediction)
+# Compute accuracy for each cell
+accuracy = cm.astype(float) / cm.sum(axis=1)[:, np.newaxis]
+# Create a figure with a specific number or name
+fig = plt.figure(num="News")
+# Create an axis object - This effectively means you are creating a single Axes object that occupies the entire figure.
+ax = fig.add_subplot(111)
+# Create annotation strings with both count and accuracy
+annotations = np.array([f'{count}\n({acc:.3f})' for count, acc in zip(cm.flatten(), accuracy.flatten())])
+annotations = annotations.reshape(cm.shape)
+# Plot confusion matrix using seaborn heatmap
+sns.heatmap(cm, annot=annotations, fmt='', ax=ax, cmap='Blues', cbar=True, annot_kws={"size": 10})
+# Set labels and title if needed
+ax.set_xlabel('Predicted labels')
+ax.set_ylabel('True labels')
+ax.set_title('SVM Confusion Matrix %0.3f' % (score*100))
+# Show the plot
+plt.show()
 
 #Passive Aggressive Classifier
 from sklearn.linear_model import PassiveAggressiveClassifier
@@ -184,28 +225,20 @@ plt.show()
 ## Seaborn Heat Map
 # Compute confusion matrix
 cm = confusion_matrix(y_test, prediction)
-
 # Compute accuracy for each cell
 accuracy = cm.astype(float) / cm.sum(axis=1)[:, np.newaxis]
-
-
 # Create a figure with a specific number or name
 fig = plt.figure(num="News")
-
 # Create an axis object - This effectively means you are creating a single Axes object that occupies the entire figure.
 ax = fig.add_subplot(111)
-
 # Create annotation strings with both count and accuracy
 annotations = np.array([f'{count}\n({acc:.3f})' for count, acc in zip(cm.flatten(), accuracy.flatten())])
 annotations = annotations.reshape(cm.shape)
-
 # Plot confusion matrix using seaborn heatmap
 sns.heatmap(cm, annot=annotations, fmt='', ax=ax, cmap='Blues', cbar=True, annot_kws={"size": 10})
-
 # Set labels and title if needed
 ax.set_xlabel('Predicted labels')
 ax.set_ylabel('True labels')
 ax.set_title('PAC Confusion Matrix %0.3f' % (score*100))
-
 # Show the plot
 plt.show()
