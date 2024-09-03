@@ -13,7 +13,6 @@ A simple guide to applying traditional machine learning and deep learning techni
 
 - [Detecting Fake News with Large Language Models (LLMs) Using Python: A Step-by-Step Guide](https://medium.com/gatorhut/identifying-fake-news-using-real-time-analytics-in-python-43cacf94c4f3)
 
-- [How to Use Artificial Intelligence and Twitter to Detect Fake News
-Creating a neural network that can accurately classify fake news articles with data from Twitter using Python and TensorFlow](https://betterprogramming.pub/how-to-use-artificial-intelligence-and-twitter-to-detect-fake-news-a-python-tutorial-75a4132acf7f)
+- [How to Use Artificial Intelligence and Twitter to Detect Fake News Creating a neural network that can accurately classify fake news articles with data from Twitter using Python and TensorFlow](https://betterprogramming.pub/how-to-use-artificial-intelligence-and-twitter-to-detect-fake-news-a-python-tutorial-75a4132acf7f)
 
 - [IDENTIFYING FAKE NEWS USING REAL-TIME ANALYTICS IN PYTHON](https://medium.com/gatorhut/identifying-fake-news-using-real-time-analytics-in-python-43cacf94c4f3)

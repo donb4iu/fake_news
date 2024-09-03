@@ -1,0 +1,6 @@
+nltk
+wordcloud
+flask
+joblib
+gunicorn
+scikit-learn
