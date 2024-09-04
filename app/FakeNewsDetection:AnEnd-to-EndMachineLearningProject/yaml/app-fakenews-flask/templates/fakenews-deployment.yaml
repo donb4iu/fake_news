@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    application: app-fakenews-flask
+  name: app-fakenews-flask
+  namespace: fakenews
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-fakenews-flask
+      application: app-fakenews-flask
+  template:
+    metadata:
+      labels:
+        app: app-fakenews-flask
+        application: app-fakenews-flask
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - amd64
+      containers:
+      - name: app-fakenews-flask
+        image: donb4iu/app-fakenews-flask:{{ .Values.env.APP_VERSION }}
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "1000Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
+## Not necessary with multi arc image
+#      nodeSelector:
+#        kubernetes.io/arch: arm64
+

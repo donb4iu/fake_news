@@ -23,6 +23,20 @@ Clean text on Post to clean up the vectoriztion so stop words are not counted as
 - [convert2json.py](https://github.com/donb4iu/fake_news/blob/main/app/FakeNewsDetection:AnEnd-to-EndMachineLearningProject/convert2json.py)
 - [etl.py](https://github.com/donb4iu/fake_news/blob/main/app/FakeNewsDetection:AnEnd-to-EndMachineLearningProject/etl.py)
 
+## Build
+
+### Docker Build
+docker buildx create --use --name temp-builder
+
+docker buildx build --platform linux/amd64,linux/arm64 -f Dockerfile --build-arg BUILDKIT_STEP_LOG_MAX_SIZE=10485760 --build-arg BUILDKIT_STEP_LOG_MAX_SPEED=10485760 -t donb4iu/app-fakenews-flask --push .
+
+docker buildx rm temp-builder
+
+### Docker Run
+```
+
+```
+
 ## Execution
 
 ![alt text](image.png)
@@ -63,17 +77,41 @@ Press CTRL+C to quit
  * Debugger is active!
  * Debugger PIN: 144-463-593
 
-
 ```
 
+## Testing the Fake_News RF Classifier Model
 
-## Testing
+### Test a file {'text':' text to predict'}
 
-```
-curl -X POST -H "Content-Type: application/json" -d @news_true.json http://127.0.0.1:8080/predict/json
+curl -X POST -H "Content-Type: application/json" -d @yourfile.json http://127.0.0.1:8080/predict/json
+
+#### Fake:  
+
 curl -X POST -H "Content-Type: application/json" -d @news_fake.json http://127.0.0.1:8080/predict/json
 
-or
+      {"prediction":0}
+
+
+#### Real:
+
+curl -X POST -H "Content-Type: application/json" -d @news_true.json http://127.0.0.1:8080/predict/json
+
+      {"prediction":1}
+
+### Test a website - {'url':' url to website content to predict'}
 
 curl -X POST -H "Content-Type: application/json" -d '{"url": "Your url to article text here"}' http://127.0.0.1:8080/predict/url
-```
+
+
+#### Fake:
+
+curl -X POST -H "Content-Type: application/json" -d '{"url": "https://www.dailymail.co.uk/tvshowbiz/article-5874213/Did-Miley-Cyrus-Liam-Hemsworth-secretly-married.html"}' http://127.0.0.1:8080/predict/url
+
+      {"prediction":0}
+
+#### Real:
+
+curl -X POST -H "Content-Type: application/json" -d '{"url": "https://americanjournalnews.com/evolution-denier-mark-robinson-could-reshape-north-carolinas-education-system/"}' http://127.0.0.1:8080/predict/url
+
+      {"prediction":1}
+

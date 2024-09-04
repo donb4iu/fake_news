@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fakenews
+#  annotations:
+#    scheduler.alpha.kubernetes.io/node-selector: kubernetes.io/arch=amd64
+  labels:
+    name: fakenews
+spec: {}
+status: {}
+

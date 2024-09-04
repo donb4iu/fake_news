@@ -1,0 +1,5 @@
+# Default values for app-fakenews-flask.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+env:
+  APP_VERSION: latest
