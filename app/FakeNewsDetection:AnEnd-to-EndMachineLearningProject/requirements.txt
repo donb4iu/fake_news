@@ -4,3 +4,6 @@ flask
 joblib
 gunicorn
 scikit-learn
+requests
+bs4
+tqdm

@@ -5,7 +5,7 @@
 
 ## References
 
-- [Fake News Detection: An End-to-End Machine Learning Project](https://towardsdatascience.com/fake-news-detection-an-end-to-end-machine-learning-project-e136d650148a) 
+- [Fake News Detection: An End-to-End Machine Learning Project](https://medium.com/@alperakis/fake-news-detection-an-end-to-end-machine-learning-project-a9c9f59f4cc7) 
 - [Dockerizing a Python Flask App: A Step-by-Step Guide to Containerizing Your Web Application](https://medium.com/@geeekfa/dockerizing-a-python-flask-app-a-step-by-step-guide-to-containerizing-your-web-application-d0f123159ba2)
 
 ## Datasets
@@ -70,6 +70,10 @@ Press CTRL+C to quit
 ## Testing
 
 ```
-curl -X POST -H "Content-Type: application/json" -d @news_true.json http://127.0.0.1:8080/predict
-curl -X POST -H "Content-Type: application/json" -d @news_fake.json http://127.0.0.1:8080/predict
+curl -X POST -H "Content-Type: application/json" -d @news_true.json http://127.0.0.1:8080/predict/json
+curl -X POST -H "Content-Type: application/json" -d @news_fake.json http://127.0.0.1:8080/predict/json
+
+or
+
+curl -X POST -H "Content-Type: application/json" -d '{"url": "Your url to article text here"}' http://127.0.0.1:8080/predict/url
 ```
