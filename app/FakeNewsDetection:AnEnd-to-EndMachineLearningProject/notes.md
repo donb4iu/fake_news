@@ -115,3 +115,18 @@ curl -X POST -H "Content-Type: application/json" -d '{"url": "https://americanjo
 
       {"prediction":1}
 
+
+
+## Kubernetes 
+
+### Setup
+
+#### #( 09/07/24@ 8:39PM )( donbuddenbaum@donbs-imac ):~/Documents/Kalaxy2/markdown@main✔
+   helm install fakenews-release ~/Documents/Kalaxy2/helm/kalaxy2_charts/app-fakenews-flask-0.3.0.tgz
+
+### Test with Postman
+
+```
+curl --location 'https://predicturl.donb4iu.com/predict/url' --header 'CF-Access-Client-ID: ${{client_id}}' --header 'CF-Access-Client-Secret: ${{cleint_secret}}' --data '{"url": "https://www.dailymail.co.uk/tvshowbiz/article-5874213/Did-Miley-Cyrus-Liam-Hemsworth-secretly-married.html"}'
+```
+

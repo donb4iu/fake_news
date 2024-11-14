@@ -1,0 +1,2 @@
+app/FakeNewsDetection:AnEnd-to-EndMachineLearningProject notes.md *.png
+app/FakeNewsDetection:UsingNLPtechniques notes.md *.png
